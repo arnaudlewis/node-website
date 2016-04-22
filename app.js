@@ -22,9 +22,6 @@ app.route('/blog/:uid').get(blog.post);
 app.route('/blog').get(function(req, res) { res.redirect('/'); });
 app.route('*').get(function(req, res) { res.render('notFound'); });
 
-//specific for prismic preview
-app.route('/preview').get(prismic.preview);
-
 app.listen(PORT, function() {
   console.log('Express server listening on port ' + PORT);
 });
