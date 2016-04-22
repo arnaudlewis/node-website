@@ -17,7 +17,9 @@
     "debug": "~0.7.4",
     "jade": "~1.9.2",
     "express-prismic": "~1.0.0",
-    "promise": "^7.0.4"
+    "promise": "^7.0.4",
+    "socket.io":"~1.2.1",
+    "ent": "~0.1.0"
   },
   "repository": {
     "type": "git",
