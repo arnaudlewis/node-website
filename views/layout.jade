@@ -8,6 +8,7 @@ head
     meta(name="viewport", content="width=device-width, initial-scale=1")
 
     script(src="//code.jquery.com/jquery-1.11.3.min.js")
+    script(src='https://cdn.socket.io/socket.io-1.2.0.js')
     script
       = ctx?"window.prismic = { endpoint: '" + ctx.endpoint + "' };":""
     script(src="/javascript/vendors/analytics.js")
@@ -21,3 +22,6 @@ footer
         a(href="/contact") Contact
         a(href="/roadmap") Roadmap
         a(href="/about") About
+
+
+include ./live-chat
