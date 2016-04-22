@@ -22,7 +22,6 @@ exports.contactForm = function (req, res) {
       subject: req.body.subject,
       text: req.body.message
   };
-  console.log(mailOpts);
   smtpTrans.sendMail(mailOpts, function (error, response) {
       //Email not sent
       console.log(error);
