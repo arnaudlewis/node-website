@@ -17,10 +17,6 @@ function handleError(err, req, res) {
 }
 
 //routes
-app.get('/test', function(req, res){
-  res.render('test');
-});
-
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);

@@ -347,6 +347,64 @@ footer a {
   }
 }
 
+#messages {
+  width: 15rem;
+  position: fixed;
+  bottom: 0;
+  right: 1rem;
+  background-color: white;
+  border: 1px solid #4E4E4E;
+  font-size: 14px;
+  font-family: Lato;
+  max-height: 20rem;
+}
+
+#messages.active ul {
+  display: block;
+}
+
+#messages.active form {
+  display: flex;
+}
+
+#messages .head {
+  color: white;
+  background-color: #4E4E4E;
+  padding: 3px 10px;
+  text-align: right;
+  cursor: pointer;
+}
+
+#messages ul {
+  padding: 1rem 1rem 4rem 1rem;
+  overflow: auto;
+  max-height: 17rem;
+  display: none;
+}
+
+#messages form {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 0.5rem;
+  background-color: white;
+  display: none;
+}
+
+#messages form input#m {
+  flex: 1;
+  margin: 0;
+}
+
+#messages form button {
+  color: white;
+  background-color: rgb(32, 173, 255);
+  margin: 0;
+  width: 5rem;
+  font-weight: bold;
+}
 @media screen and (min-width: 768px) {
 
   /* Blog post images */
