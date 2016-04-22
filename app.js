@@ -14,11 +14,6 @@ function handleError(err, req, res) {
   }
 }
 
-app.listen(PORT, function() {
-  console.log('Express server listening on port ' + PORT);
-});
-
-
 //routes
 app.route('/').get(blog.bloghome);
 app.route('/blog/:uid').get(blog.post);
@@ -29,3 +24,7 @@ app.route('*').get(function(req, res) { res.render('notFound'); });
 
 //specific for prismic preview
 app.route('/preview').get(prismic.preview);
+
+app.listen(PORT, function() {
+  console.log('Express server listening on port ' + PORT);
+});
