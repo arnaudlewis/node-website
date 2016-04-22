@@ -17,6 +17,8 @@ function handleError(err, req, res) {
 //routes
 app.route('/').get(blog.bloghome);
 app.route('/blog/:uid').get(blog.post);
+app.route('/about').get(blog.about);
+app.route('/roadmap').get(blog.roadmap);
 
 //redirect or not found
 app.route('/blog').get(function(req, res) { res.redirect('/'); });

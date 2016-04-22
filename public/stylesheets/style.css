@@ -297,6 +297,7 @@ footer p {
 
 footer a {
   font-weight: bold;
+  margin-right: 20px;
 }
 
 .notFound {

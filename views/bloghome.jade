@@ -10,8 +10,9 @@ block body
         - var illustrationUrl = maybeBloghomeImageUrl || ''
 
         div.home
-            div.blog-avatar(style='background-image: url(' + illustrationUrl + ');')
-            h1.blog-title !{bloghome.getText('bloghome.headline')}
+            a(href="/")
+              div.blog-avatar(style='background-image: url(' + illustrationUrl + ');')
+              h1.blog-title !{bloghome.getText('bloghome.headline')}
             p.blog-description !{bloghome.getText('bloghome.description')}
         div.blog-main
             for post in posts

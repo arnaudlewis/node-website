@@ -1,6 +1,30 @@
 var Prismic = require('express-prismic').Prismic,
     configuration = require('./prismic-configuration').Configuration;
 
+
+function otherPage(uid, req, res) {
+  var p = Prismic.withContext(req, res);
+  p.queryFirst('[[:d = at(my.other.uid, "' + uid + '")]]', function (err, other) {
+    if (err) { configuration.onPrismicError(err, req, res); return; }
+    if (other) {
+      res.render('other', {
+        'other' : other
+      });
+    } else {
+      res.status(404)
+        .send('Not found');
+    }
+  });
+}
+
+exports.about = function(req, res) {
+  otherPage('about', req, res);
+};
+
+exports.roadmap = function(req, res) {
+  otherPage('roadmap', req, res);
+};
+
 exports.bloghome = function(req, res) {
 
   var p = Prismic.withContext(req, res);
