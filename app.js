@@ -2,6 +2,9 @@ var prismic = require('express-prismic');
 var app = require('./config');
 var PORT = app.get('port');
 var blog = require('./blog');
+var helpers = require('./helpers');
+
+app.locals.helpers = helpers;
 
 function handleError(err, req, res) {
   if (err.status == 404) {
@@ -15,6 +18,14 @@ app.listen(PORT, function() {
   console.log('Express server listening on port ' + PORT);
 });
 
-app.route('/').get(blog.bloghome);
 
+//routes
+app.route('/').get(blog.bloghome);
+app.route('/post/:uid').get(blog.bloghome);
+
+//redirect or not found
+app.route('/blog').get(function(req, res) { res.redirect('/'); });
+app.route('*').get(function(req, res) { res.render('notFound'); });
+
+//specific for prismic preview
 app.route('/preview').get(prismic.preview);
