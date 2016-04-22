@@ -6,6 +6,9 @@ var helpers = require('./helpers');
 var http = require('http').Server(app);
 var io = require('socket.io').listen(app.listen(PORT));
 
+var contact = require('./contact');
+
+
 app.locals.helpers = helpers;
 
 function handleError(err, req, res) {
@@ -27,7 +30,8 @@ app.route('/').get(blog.bloghome);
 app.route('/blog/:uid').get(blog.post);
 app.route('/about').get(blog.about);
 app.route('/roadmap').get(blog.roadmap);
-
+app.get('/contact', contact.contact);
+app.post('/contact',contact.contactForm);
 //redirect or not found
 app.route('/blog').get(function(req, res) { res.redirect('/'); });
 app.route('*').get(function(req, res) { res.render('notFound'); });

@@ -1,0 +1,23 @@
+extends ./layout.jade
+
+block body
+
+  div.contact
+    h1 Contact
+    form(action='/contact', name='contactus', id='contactus', method='post')
+      p
+        label(for='name') Name:
+        input(name='name', type='text', value='', id='name')
+      p
+        label(for='email') Email:
+        input(name='email', type='text', value='', id='email')
+      p
+        label(for='subject') Subject:
+        input(name='subject', type='text', value='', id='subject')
+      p
+        label(for='message') Message:
+        textarea(name='message', cols='40', rows='10', id='message')
+      p
+        input(name='submit', type='submit', value='Send', id='submit')
+
+

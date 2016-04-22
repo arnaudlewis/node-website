@@ -413,6 +413,78 @@ footer a {
   font-weight: bold;
   border: none;
 }
+
+.contact {
+  padding: 2rem;
+}
+
+.contact form {
+  border: none;
+  font-family: 'Lato';
+  width: 30rem;
+  margin: 5rem auto 0 auto;
+}
+
+.contact form label {
+  display: block;
+  font-size: 14px;
+}
+
+.contact form input {
+  width: 100%;
+  height: 2rem;
+  padding: 0.5rem;
+}
+
+.contact form textarea {
+  resize: none;
+  width: 100%;
+  min-height: 10rem;
+  border: 1px solid gainsboro;
+}
+
+.contact form input[type="submit"] {
+  width: 15rem;
+  display: block;
+  height: 2rem;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(255, 191, 81);
+  border: none;
+  border-radius: 3px;
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
+
+  .main .blog-header.single, .blog-header.home {
+    height: 768px;
+  }
+
+  .main .blog-main.single .image-full-width {
+    width: 768px;
+  }
+
+  .main .post-part.single .image-full-width {
+    width: 768px;
+  }
+}
+
+@media screen and (device-aspect-ratio: 40/71) {
+
+  .main .blog-header.single, .main .blog-header.home {
+    height: 530px;
+  }
+
+  .main .blog-main.single .image-full-width {
+    width: 530px;
+  }
+
+  .main .post-part.single .image-full-width {
+    width: 530px;
+  }
+}
+
 @media screen and (min-width: 768px) {
 
   /* Blog post images */
@@ -453,35 +525,5 @@ footer a {
 
   .main .post-part.single .image-full-width {
     width: 768px;
-  }
-}
-
-@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
-
-  .main .blog-header.single, .blog-header.home {
-    height: 768px;
-  }
-
-  .main .blog-main.single .image-full-width {
-    width: 768px;
-  }
-
-  .main .post-part.single .image-full-width {
-    width: 768px;
-  }
-}
-
-@media screen and (device-aspect-ratio: 40/71) {
-
-  .main .blog-header.single, .main .blog-header.home {
-    height: 530px;
-  }
-
-  .main .blog-main.single .image-full-width {
-    width: 530px;
-  }
-
-  .main .post-part.single .image-full-width {
-    width: 530px;
   }
 }
