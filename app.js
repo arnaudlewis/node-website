@@ -4,6 +4,9 @@ var PORT = app.get('port');
 var blog = require('./blog');
 var helpers = require('./helpers');
 
+var contact = require('./contact');
+
+
 app.locals.helpers = helpers;
 
 function handleError(err, req, res) {
@@ -17,7 +20,8 @@ function handleError(err, req, res) {
 //routes
 app.route('/').get(blog.bloghome);
 app.route('/blog/:uid').get(blog.post);
-
+app.get('/contact', contact.contact);
+app.post('/contact',contact.contactForm);
 //redirect or not found
 app.route('/blog').get(function(req, res) { res.redirect('/'); });
 app.route('*').get(function(req, res) { res.render('notFound'); });
@@ -25,6 +29,7 @@ app.route('*').get(function(req, res) { res.render('notFound'); });
 //specific for prismic preview
 app.route('/preview').get(prismic.preview);
 
+// Port
 app.listen(PORT, function() {
   console.log('Express server listening on port ' + PORT);
 });
