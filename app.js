@@ -21,7 +21,7 @@ app.listen(PORT, function() {
 
 //routes
 app.route('/').get(blog.bloghome);
-app.route('/post/:uid').get(blog.bloghome);
+app.route('/blog/:uid').get(blog.post);
 
 //redirect or not found
 app.route('/blog').get(function(req, res) { res.redirect('/'); });
