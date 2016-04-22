@@ -3,6 +3,8 @@ var app = require('./config');
 var PORT = app.get('port');
 var blog = require('./blog');
 var helpers = require('./helpers');
+var http = require('http').Server(app);
+var io = require('socket.io').listen(app.listen(PORT));
 
 app.locals.helpers = helpers;
 
@@ -15,6 +17,16 @@ function handleError(err, req, res) {
 }
 
 //routes
+app.get('/test', function(req, res){
+  res.render('test');
+});
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
+
 app.route('/').get(blog.bloghome);
 app.route('/blog/:uid').get(blog.post);
 
@@ -24,7 +36,3 @@ app.route('*').get(function(req, res) { res.render('notFound'); });
 
 //specific for prismic preview
 app.route('/preview').get(prismic.preview);
-
-app.listen(PORT, function() {
-  console.log('Express server listening on port ' + PORT);
-});
